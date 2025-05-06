@@ -1,6 +1,6 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
+vim.o.laststatus = 3
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.local/share/nvim/plugged')
 
@@ -15,6 +15,7 @@ Plug('L3MON4D3/LuaSnip')
 Plug('saadparwaiz1/cmp_luasnip')
 Plug('rafamadriz/friendly-snippets')
 Plug('projekt0n/github-nvim-theme')
+Plug('nvim-lualine/lualine.nvim')
 
 vim.call('plug#end')
 
@@ -68,6 +69,15 @@ cmp.setup({
   },
 })
 
+require('lualine').setup {
+  options = {
+    theme = 'horizon',
+    section_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
+  }
+}
+
+
 vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>', { desc = 'Toggle Neo-tree' })
 
 vim.opt.termguicolors=true
@@ -80,52 +90,3 @@ vim.cmd('set relativenumber')
 vim.keymap.set('i', 'kj', '<ESC>', { desc = 'Exit Insert mode with kj' })
 
 vim.o.showmode = false
-vim.cmd([[
-  hi! StatusLineBlockMode guifg=#282c34 guibg=#e5c07b gui=bold
-  hi! StatusLineBlockFile guifg=#282c34 guibg=#61afef gui=bold
-  hi! StatusLineBlockPos guifg=#282c34 guibg=#98c379 gui=bold
-  hi! StatusLineBlockTime guifg=#282c34 guibg=#e5c07b gui=bold
-]])
-
-local function mode_str()
-  local modes = {
-    n = "NORMAL", i = "INSERT", v = "VISUAL", V = "V-LINE", [''] = "V-BLOCK",
-    c = "COMMAND", R = "REPLACE", t = "TERMINAL"
-  }
-  local m = vim.api.nvim_get_mode().mode
-  return modes[m] or m
-end
-
-local function file_icon()
-  local ext = vim.fn.expand("%:e")
-  local icons = {
-    lua = "", js = "", ts = "", py = "", md = "", vim = "", [""] = ""
-  }
-  return icons[ext] or ""
-end
-
-function _G.universal_statusline()
-  local mode = mode_str()
-  local icon = file_icon()
-  local path = vim.fn.expand("%:~:.")
-  local line = vim.fn.line(".")
-  local col = vim.fn.col(".")
-  local clock_str = os.date("%H:%M")
-  return table.concat({
-    "%#StatusLineBlockMode# " .. mode .. " ",
-    "%#StatusLineBlockFile# " .. icon .. " " .. path .. " ",
-    "%=",
-    "%#StatusLineBlockPos# " .. line .. ":" .. col .. " ",
-    "%#StatusLineBlockTime# 󰥔 " .. clock_str .. " ",
-  })
-end
-
-vim.o.statusline = "%!v:lua.universal_statusline()"
-vim.o.laststatus = 3  -- <--- This is the key!
-vim.o.showmode = false
-
--- Optional: auto-refresh for the clock
-vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI", "FocusGained", "BufEnter"}, {
-  callback = function() vim.cmd("redrawstatus") end,
-})
-vim.fn.timer_start(60000, function() vim.cmd("redrawstatus") end, {["repeat"] = -1})
