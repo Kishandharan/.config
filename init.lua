@@ -8,7 +8,6 @@ Plug('nvim-lua/plenary.nvim')
 Plug('nvim-tree/nvim-web-devicons') -- optional, for icons
 Plug('MunifTanjim/nui.nvim')
 Plug('nvim-neo-tree/neo-tree.nvim', { ['branch'] = 'v3.x' })
-Plug('gen740/SmoothCursor.nvim/')
 Plug('hrsh7th/cmp-buffer')
 Plug('hrsh7th/nvim-cmp')
 Plug('L3MON4D3/LuaSnip')
