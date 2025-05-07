@@ -1,5 +1,5 @@
 # ProductiveNvimSetup
-The nvim config I use to be fast in coding!    
+The nvim config I use to make nvim amazing!    
 Requirements:    
 - Nvim v11 or above
 - Nvim Plug
