@@ -1,11 +1,8 @@
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.o.laststatus = 3
+-- Installing Plugins, add more plugins as you want
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.local/share/nvim/plugged')
-
 Plug('nvim-lua/plenary.nvim')
-Plug('nvim-tree/nvim-web-devicons') -- optional, for icons
+Plug('nvim-tree/nvim-web-devicons')
 Plug('MunifTanjim/nui.nvim')
 Plug('nvim-neo-tree/neo-tree.nvim', { ['branch'] = 'v3.x' })
 Plug('hrsh7th/cmp-buffer')
@@ -15,11 +12,13 @@ Plug('saadparwaiz1/cmp_luasnip')
 Plug('rafamadriz/friendly-snippets')
 Plug('projekt0n/github-nvim-theme')
 Plug('nvim-lualine/lualine.nvim')
-
 vim.call('plug#end')
 
+-- Configuring plugins, tweak these as you want
 vim.g.neo_tree_remove_legacy_commands = 1
-
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.o.laststatus = 3
 require('neo-tree').setup({
   close_if_last_window = true,
   popup_border_style = "rounded",
@@ -40,14 +39,9 @@ require('neo-tree').setup({
     width = 30,
   },
 })
-
-
--- Load LuaSnip and friendly-snippets
 require("luasnip.loaders.from_vscode").lazy_load()
-
 local cmp = require'cmp'
 local luasnip = require'luasnip'
-
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -63,11 +57,10 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
   },
   sources = {
-    { name = 'luasnip' }, -- snippets from friendly-snippets
-    { name = 'buffer' },  -- buffer words
+    { name = 'luasnip' }, 
+    { name = 'buffer' },  
   },
 })
-
 require('lualine').setup {
   options = {
     theme = 'horizon',
@@ -76,9 +69,14 @@ require('lualine').setup {
   }
 }
 
+-- Configuring Keymaps, tweak these as you want
+vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>', {silent=true, desc = 'Toggle Neo-tree'})
+vim.keymap.set('i', 'kj', '<ESC>', {silent=true, desc = 'Exit Insert mode with kj'})
+vim.keymap.set('n', '<Tab>', ':bnext<CR>', {silent = true, desc = "Next buffer"})
+vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', {silent = true, desc = "Previous buffer"})
 
-vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>', { desc = 'Toggle Neo-tree' })
 
+-- Configuring general Nvim settings, tweak these as you want
 vim.opt.termguicolors=true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -86,6 +84,4 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.cmd('colorscheme github_dark_default')
 vim.cmd('set relativenumber')
-vim.keymap.set('i', 'kj', '<ESC>', { desc = 'Exit Insert mode with kj' })
-
 vim.o.showmode = false
