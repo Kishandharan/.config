@@ -1,6 +1,6 @@
 -- Installing Plugins, add more plugins as you want
 local Plug = vim.fn['plug#']
-vim.call('plug#begin', '~/.local/share/nvim/plugged')
+vim.call('plug#begin', '~/AppData/Local/nvim/plugged')
 Plug('nvim-lua/plenary.nvim')
 Plug('nvim-tree/nvim-web-devicons')
 Plug('MunifTanjim/nui.nvim')
