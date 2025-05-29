@@ -73,10 +73,16 @@ require('lualine').setup {
 
 -- Configuring Keymaps, tweak these as you want
 vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>', {silent=true, desc = 'Toggle Neo-tree'})
-vim.keymap.set('i', 'kj', '<ESC>', {silent=true, desc = 'Exit Insert mode with kj'})
-vim.keymap.set('i', '<C-s>', '<ESC>:w<CR>a',{silent=true, desc = 'Save file in insert more'})
-vim.keymap.set('n', '<Tab>', ':bnext<CR>', {silent = true, desc = "Next buffer"})
-vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', {silent = true, desc = "Previous buffer"})
+local opts = { noremap = true, silent = true }
+
+vim.keymap.set('i', '<C-h>', '<Left>', opts)
+vim.keymap.set('i', '<C-j>', '<Down>', opts)
+vim.keymap.set('i', '<C-k>', '<Up>', opts)
+vim.keymap.set('i', '<C-l>', '<Right>', opts)
+vim.keymap.set('i', 'kj', '<ESC>', opts)
+vim.keymap.set('i', '<C-s>', '<ESC>:w<CR>a', opts)
+vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
+vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
 
 
 -- Configuring general Nvim settings, tweak these as you want
