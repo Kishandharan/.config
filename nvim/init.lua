@@ -90,5 +90,5 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.cmd('colorscheme github_dark_default')
-vim.cmd('set relativenumber')
+vim.cmd('set number')
 vim.o.showmode = false
