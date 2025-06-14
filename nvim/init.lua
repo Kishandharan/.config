@@ -74,14 +74,19 @@ require('lualine').setup {
 -- Configuring Keymaps, tweak these as you want
 local opts = {noremap = true, silent = true}
 
-vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>', opts)
+vim.keymap.set("", "<Space>", "<Nop>")
+vim.g.mapleader = " "
+
 vim.keymap.set('i', '<C-h>', '<Left>', opts)
 vim.keymap.set('i', '<C-j>', '<Down>', opts)
 vim.keymap.set('i', '<C-k>', '<Up>', opts)
 vim.keymap.set('i', '<C-l>', '<Right>', opts)
 vim.keymap.set('i', 'kj', '<ESC>', opts)
 vim.keymap.set('i', '<C-s>', '<ESC>:w<CR>i', opts)
-vim.keymap.set('n', '<C-f>', ':Files<CR>', opts)
+
+vim.keymap.set('n', '<Leader>f', ':Files<CR>', opts)
+vim.keymap.set('n', '<Leader>e', ':Neotree toggle<CR>', opts)
+vim.keymap.set('n', '<Leader>w', ':w<CR>', opts)
 
 -- Configuring general Nvim settings, tweak these as you want
 vim.opt.termguicolors=true
