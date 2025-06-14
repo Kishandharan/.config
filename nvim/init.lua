@@ -14,6 +14,7 @@ Plug('projekt0n/github-nvim-theme')
 Plug('nvim-lualine/lualine.nvim')
 Plug('junegunn/fzf', { ['do'] = function() vim.fn['fzf#install']() end })
 Plug('junegunn/fzf.vim')
+Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })  
 vim.call('plug#end')
 
 -- Configuring plugins, tweak these as you want
@@ -71,6 +72,19 @@ require('lualine').setup {
   }
 }
 
+require('nvim-treesitter.configs').setup {
+  ensure_installed = { "lua", "python", "javascript", "typescript", "c", "cpp" },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+  indent = {
+    enable = true,
+  },
+}
+
+vim.opt.foldenable = false
+
 -- Configuring Keymaps, tweak these as you want
 local opts = {noremap = true, silent = true}
 
@@ -97,3 +111,4 @@ vim.opt.autoindent = true
 vim.cmd('colorscheme github_dark_default')
 vim.cmd('set number')
 vim.o.showmode = false
+
