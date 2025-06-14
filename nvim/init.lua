@@ -101,6 +101,9 @@ vim.keymap.set('i', '<C-s>', '<ESC>:w<CR>i', opts)
 vim.keymap.set('n', '<Leader>f', ':Files<CR>', opts)
 vim.keymap.set('n', '<Leader>e', ':Neotree toggle<CR>', opts)
 vim.keymap.set('n', '<Leader>w', ':w<CR>', opts)
+vim.keymap.set('n', '<Leader>c', ':PlugClean<CR>', opts)
+vim.keymap.set('n', '<Leader>i', ':PlugInstall<CR>', opts)
+vim.keymap.set('n', '<Leader>u', ':PlugUpdate<CR>', opts)
 
 -- Configuring general Nvim settings, tweak these as you want
 vim.opt.termguicolors=true
