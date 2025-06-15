@@ -89,6 +89,10 @@ require('lualine').setup {
   }
 }
 
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
 require('nvim-treesitter.configs').setup {
   ensure_installed = { "lua", "python", "javascript", "cpp"},
   highlight = {
@@ -124,9 +128,6 @@ vim.keymap.set('n', '<Leader>u', ':Lazy update<CR>', opts)
 
 -- Configuring general nvim settings, tweak these as you want
 vim.opt.termguicolors = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.cmd('colorscheme github_dark_default')
 vim.cmd('set number')
