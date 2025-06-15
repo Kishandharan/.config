@@ -23,11 +23,11 @@ require("lazy").setup({
   { 'L3MON4D3/LuaSnip' },
   { 'saadparwaiz1/cmp_luasnip' },
   { 'rafamadriz/friendly-snippets' },
-  { 'projekt0n/github-nvim-theme' },
   { 'nvim-lualine/lualine.nvim' },
   { 'junegunn/fzf', build = function() vim.fn['fzf#install']() end },
   { 'junegunn/fzf.vim' },
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+  { 'scottmckendry/cyberdream.nvim' },
 })
 
 -- Configuring plugins, tweak these as you want
@@ -129,6 +129,7 @@ vim.keymap.set('n', '<Leader>u', ':Lazy update<CR>', opts)
 -- Configuring general nvim settings, tweak these as you want
 vim.opt.termguicolors = true
 vim.opt.autoindent = true
-vim.cmd('colorscheme github_dark_default')
+vim.cmd('colorscheme cyberdream')
 vim.cmd('set number')
 vim.o.showmode = false
+
