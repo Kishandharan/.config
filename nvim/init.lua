@@ -24,8 +24,7 @@ require("lazy").setup({
   { 'saadparwaiz1/cmp_luasnip' },
   { 'rafamadriz/friendly-snippets' },
   { 'nvim-lualine/lualine.nvim' },
-  { 'junegunn/fzf', build = function() vim.fn['fzf#install']() end },
-  { 'junegunn/fzf.vim' },
+  { 'ibhagwan/fzf-lua' },
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
   { 
     'folke/tokyonight.nvim',
@@ -175,7 +174,7 @@ vim.keymap.set('i', '<C-l>', '<Right>', opts)
 vim.keymap.set('i', 'kj', '<ESC>', opts)
 vim.keymap.set('i', '<C-s>', '<ESC>:w<CR>i', opts)
 
-vim.keymap.set('n', '<Leader>f', ':Files<CR>', opts)
+vim.keymap.set('n', '<Leader>f', ':FzfLua files<CR>', opts)
 vim.keymap.set('n', '<Leader>e', ':Neotree toggle<CR>', opts)
 vim.keymap.set('n', '<Leader>w', ':w<CR>', opts)
 vim.keymap.set('n', '<Leader>c', ':Lazy clean<CR>', opts)  
