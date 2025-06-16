@@ -27,7 +27,11 @@ require("lazy").setup({
   { 'junegunn/fzf', build = function() vim.fn['fzf#install']() end },
   { 'junegunn/fzf.vim' },
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
-  { 'scottmckendry/cyberdream.nvim' },
+  { 
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+  },
 })
 
 -- Configuring plugins, tweak these as you want
@@ -81,9 +85,22 @@ cmp.setup({
   },
 })
 
+
+require('tokyonight').setup({
+  style = "night",
+  transparent = false,
+  terminal_colors = true,
+  styles = {
+    comments = { italic = false },
+    keywords = { italic = false },
+  },
+  sidebars = "dark",
+  floats = "dark",
+})
+
 require('lualine').setup {
   options = {
-    theme = 'horizon',
+    theme = 'tokyonight',
     section_separators = { left = '', right = '' },
     component_separators = { left = '', right = '' },
   }
@@ -129,7 +146,7 @@ vim.keymap.set('n', '<Leader>u', ':Lazy update<CR>', opts)
 -- Configuring general nvim settings, tweak these as you want
 vim.opt.termguicolors = true
 vim.opt.autoindent = true
-vim.cmd('colorscheme cyberdream')
+vim.cmd.colorscheme("tokyonight")
 vim.cmd('set number')
 vim.o.showmode = false
 
