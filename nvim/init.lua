@@ -125,6 +125,9 @@ require('nvim-treesitter.configs').setup {
 vim.opt.foldenable = false
 
 vim.notify = require("notify")
+require("notify").setup({
+  stages = "fade",
+})
 
 require("noice").setup({
   notify = { enabled = true },
@@ -162,7 +165,7 @@ require("noice").setup({
 -- Configuring Keymaps, tweak these as you want
 local opts = {noremap = true, silent = true}
 
-vim.keymap.set("", "<Space>", "<Nop>")
+vim.keymap.set("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 vim.keymap.set('i', '<C-h>', '<Left>', opts)
