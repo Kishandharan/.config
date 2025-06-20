@@ -33,6 +33,13 @@ require("lazy").setup({
   },
   { 'rcarriga/nvim-notify' },
   { 'folke/noice.nvim' },
+
+  -- Bufferline plugin declaration without config here
+  { 
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
 })
 
 -- Configuring plugins, tweak these as you want
@@ -57,7 +64,7 @@ require('neo-tree').setup({
     },
   },
   window = {
-    position = "left",
+    position = "float",
     width = 30,
   },
 })
@@ -161,6 +168,23 @@ require("noice").setup({
   },
 })
 
+require("bufferline").setup({
+  options = {
+    offsets = {
+      {
+        filetype = "neo-tree",
+        separator = true,
+      },
+    },
+    separator_style = { "|", "|" },
+    show_close_icon = true,
+    show_buffer_close_icons = true,
+    diagnostics = "nvim_lsp",
+    underline_selected = true,
+    always_show_bufferline = true,
+  },
+})
+
 -- Configuring Keymaps, tweak these as you want
 local opts = {noremap = true, silent = true}
 
@@ -187,4 +211,5 @@ vim.opt.autoindent = true
 vim.cmd.colorscheme("tokyonight")
 vim.cmd('set number')
 vim.o.showmode = false
+vim.o.showtabline = 2
 
