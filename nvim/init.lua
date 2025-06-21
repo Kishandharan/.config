@@ -33,13 +33,7 @@ require("lazy").setup({
   },
   { 'rcarriga/nvim-notify' },
   { 'folke/noice.nvim' },
-
-  -- Bufferline plugin declaration without config here
-  { 
-    'akinsho/bufferline.nvim',
-    version = "*",
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-  },
+  { 'akinsho/bufferline.nvim', version = "*", dependencies = { 'nvim-tree/nvim-web-devicons' }}
 })
 
 -- Configuring plugins, tweak these as you want
@@ -47,6 +41,7 @@ vim.g.neo_tree_remove_legacy_commands = 1
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.o.laststatus = 3
+vim.opt.shortmess:append("I")
 
 require('neo-tree').setup({
   close_if_last_window = true,
