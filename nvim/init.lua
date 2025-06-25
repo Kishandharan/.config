@@ -103,11 +103,10 @@ require('tokyonight').setup({
 require('lualine').setup {
   options = {
     theme = 'tokyonight',
-    section_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' }, 
     component_separators = { left = '', right = '' },
   }
 }
-
 
 require('nvim-treesitter.configs').setup {
   ensure_installed = { "lua", "python", "javascript", "cpp"},
