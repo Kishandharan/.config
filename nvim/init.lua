@@ -103,14 +103,11 @@ require('tokyonight').setup({
 require('lualine').setup {
   options = {
     theme = 'tokyonight',
-    section_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
     component_separators = { left = '', right = '' },
   }
 }
 
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
 
 require('nvim-treesitter.configs').setup {
   ensure_installed = { "lua", "python", "javascript", "cpp"},
@@ -119,7 +116,7 @@ require('nvim-treesitter.configs').setup {
     additional_vim_regex_highlighting = false,
   },
   indent = {
-    enable = true,
+    enable = false,
   },
 }
 
@@ -198,6 +195,9 @@ vim.keymap.set('n', '<Leader>u', ':Lazy update<CR>', opts)
 -- Configuring general nvim settings, tweak these as you want
 vim.opt.termguicolors = true
 vim.opt.autoindent = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 vim.cmd.colorscheme("tokyonight")
 vim.cmd('set number')
 vim.o.showmode = false
