@@ -59,7 +59,7 @@ require('neo-tree').setup({
     },
   },
   window = {
-    position = "float",
+    position = "left",
     width = 30,
   },
 })
@@ -161,13 +161,20 @@ require("noice").setup({
 
 vim.api.nvim_set_hl(0, "BufferLineFill", { bg = "#1c1f2e" })
 require("bufferline").setup({
+ 
   options = {
+    offsets = {
+       {
+          filetype = "neo-tree",
+          seperator=false
+       }
+    },
     separator_style = { "|", "|" },
     show_close_icon = true,
     show_buffer_close_icons = true,
+    always_show_bufferline=false,
     diagnostics = "nvim_lsp",
     underline_selected = true,
-    always_show_bufferline = true,
   },
 })
 
