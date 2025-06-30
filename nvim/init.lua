@@ -33,7 +33,7 @@ require("lazy").setup({
   },
   { 'rcarriga/nvim-notify' },
   { 'folke/noice.nvim' },
-  { 'akinsho/bufferline.nvim', version = "*", dependencies = { 'nvim-tree/nvim-web-devicons' }}
+  { 'akinsho/bufferline.nvim', version = "*", dependencies = { 'nvim-tree/nvim-web-devicons' }},
 })
 
 -- Configuring plugins, tweak these as you want
@@ -103,8 +103,10 @@ require('tokyonight').setup({
 require('lualine').setup {
   options = {
     theme = 'tokyonight',
-    section_separators = { left = '', right = '' }, 
-    component_separators = { left = '', right = '' },
+    --section_separators = { left = '', right = '' }, 
+    --component_separators = { left = '', right = '' },
+     section_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
   }
 }
 
@@ -194,9 +196,7 @@ vim.keymap.set('i', '<C-s>', '<ESC>:w<CR>i', opts)
 vim.keymap.set('n', '<Leader>f', ':FzfLua files<CR>', opts)
 vim.keymap.set('n', '<Leader>e', ':Neotree toggle<CR>', opts)
 vim.keymap.set('n', '<Leader>w', ':w<CR>', opts)
-vim.keymap.set('n', '<Leader>c', ':Lazy clean<CR>', opts)  
-vim.keymap.set('n', '<Leader>i', ':Lazy install<CR>', opts)
-vim.keymap.set('n', '<Leader>u', ':Lazy update<CR>', opts) 
+vim.keymap.set('n', '<Leader>l', ':Lazy<CR>', opts)  
 
 -- Configuring general nvim settings, tweak these as you want
 vim.opt.termguicolors = true
